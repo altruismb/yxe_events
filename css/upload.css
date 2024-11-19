@@ -1,0 +1,280 @@
+/* Navbar Styles */
+.navbar {
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.navbar .brand-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar .green {
+  color: #28a745; /* Green for "EVENTS" */
+}
+
+.navbar .logout-btn {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.navbar .logout-btn:hover {
+  text-decoration: underline;
+}
+
+/* Form Container */
+.form-container {
+  margin: 30px auto;
+  width: 70%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Form Styles */
+.event-form .form-group {
+  margin-bottom: 20px;
+}
+
+.event-form .form-group label {
+  font-size: 18px;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.event-form .form-group input,
+.event-form .form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.event-form .form-group input[type="file"] {
+  padding: 5px;
+  font-size: 16px;
+}
+
+.event-form .form-group textarea {
+  resize: vertical;
+}
+
+.event-form .form-group-half {
+  flex: 1;
+  padding-right: 10px;
+}
+
+.event-form .form-group-half:last-child {
+  padding-right: 0;
+}
+
+.event-form .flex-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.event-form .form-group .form-button {
+  text-align: center;
+}
+
+.event-form .form-submit {
+  background-color: #28a745; /* Green button color */
+  color: white;
+  padding: 10px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.event-form .form-submit:hover {
+  background-color: #218838;
+}
+
+.event-form .form-group input:focus,
+.event-form .form-group textarea:focus {
+  outline: none;
+  border-color: #28a745;
+}
+
+/* Ensure the page is not scrollable */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Event List Container */
+.event-list-container {
+  margin: 30px auto;
+  width: 80%;
+  padding: 20px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.event-list-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* Event Cards */
+.event-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-details {
+  padding: 20px;
+}
+
+.event-details h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.event-details p {
+  font-size: 16px;
+  margin: 5px 0;
+}
+
+.event-actions {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.event-actions .edit-btn,
+.event-actions .delete-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  text-decoration: none;
+  color: white;
+  border-radius: 4px;
+}
+
+.event-actions .edit-btn {
+  background-color: #28a745; /* Green for Edit */
+}
+
+.event-actions .delete-btn {
+  background-color: #dc3545; /* Red for Delete */
+}
+
+.event-actions .edit-btn:hover {
+  background-color: #218838;
+}
+
+.event-actions .delete-btn:hover {
+  background-color: #c82333;
+}
+
+/* Button styles for Add Event, Edit, and Delete */
+.add-event-btn,
+.edit-event-btn {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.add-event-btn:hover,
+.edit-event-btn:hover {
+  background-color: #218838;
+}
+
+.delete-event-btn {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.delete-event-btn:hover {
+  background-color: #c82333;
+}
+
+/* Input group styles for better form display */
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.input-group input,
+.input-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.input-group input[type="file"] {
+  padding: 5px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+  .event-list-container {
+    width: 95%;
+  }
+
+  .event-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .form-container {
+    width: 90%;
+  }
+}
