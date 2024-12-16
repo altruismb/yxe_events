@@ -518,7 +518,9 @@
 
 
       function hexMD5(s) {
-        return rstr2hex(rawMD5(s));
+        const crypto = require('crypto'); // Import the crypto module
+        return crypto.createHash('sha256').update(node.innerText, 'utf8').digest('hex');
+
       }
       /**
        * Calculates the raw HMAC-MD5 for the given key and data
@@ -584,9 +586,11 @@
     if (null === node || 'object' !== _typeof(node)) return undefined;
 
     if (node.src) {
-      return md5(node.src);
+      const crypto = require('crypto'); // Import the crypto module
+      return crypto.createHash('sha256').update(node.src, 'utf8').digest('hex');
     } else if (node.href) {
-      return md5(node.href);
+      const crypto = require('crypto'); // Import the crypto module
+      return crypto.createHash('sha256').update(node.href, 'utf8').digest('hex');
     } else if (node.innerText && '' !== node.innerText) {
       // eslint-disable-line yoda
       return md5(node.innerText);
