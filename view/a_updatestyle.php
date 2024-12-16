@@ -124,7 +124,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                   <input type="hidden" name="style_id" value="<?php echo($sid)?>">
                     <div class="form-group mb-3">
                       <label for="update_style">Style Name</label>
-                      <input id="name" name="update_style" type="text" class="form-control validate" required value="<?php echo($style_detail['style_name'])?>">
+                      <input id="name" name="update_style" type="text" class="form-control validate" required value="<?php echo htmlspecialchars($style_detail['style_name'], ENT_QUOTES, 'UTF-8'); ?>">
                     </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">
