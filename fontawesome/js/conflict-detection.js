@@ -595,7 +595,8 @@
       return crypto.createHash('sha256').update(node.href, 'utf8').digest('hex');
     } else if (node.innerText && '' !== node.innerText) {
       // eslint-disable-line yoda
-      return md5(node.innerText);
+      const crypto = require('crypto'); // Import the crypto module
+      return crypto.createHash('sha256').update(node.innerText, 'utf8').digest('hex');
     } else {
       return undefined;
     }
