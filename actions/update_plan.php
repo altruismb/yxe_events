@@ -21,6 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     
     $pid = $_POST['id'];
     // echo($pid);
+// Ensure the target directory is a valid and trusted directory
+$targetdir = rtrim(realpath($targetdir), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
+
+// Sanitize the file name to prevent directory traversal
+$safe_filename = basename($tmp); // Removes directory traversal elements
+$safe_filename = preg_replace('/[^a-zA-Z0-9_\-\.]/', '_', $safe_filename); // Allows only safe characters
+
+// Construct the full target path
+$target_file = $targetdir . $safe_filename;
+
+// Ensure the temporary file exists and is a valid uploaded file
 
     if(move_uploaded_file($tmp,$targetdir)){
         $check_update = update_all_plan_ctrl($pid, $pcat, $pbrand, $ptitle, $pprice, $pdesc, $targetdir, $pkey);
