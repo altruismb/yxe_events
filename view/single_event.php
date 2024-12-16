@@ -115,7 +115,7 @@ $brand = select_style_ctrl($product_style);
         <div class="col-md-12 col-lg-8">
           <div class="title-single-box">
             <h1 class="title-single">
-              <?php echo $product_one['plan_title'] ?>
+            <?php echo htmlspecialchars($product_one['plan_title'], ENT_QUOTES, 'UTF-8'); ?>
             </h1>
             <span class="color-text-a">Saskatoon</span>
           </div>
