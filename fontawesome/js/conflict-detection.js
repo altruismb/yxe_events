@@ -561,10 +561,12 @@
       function md5(string, key, raw) {
         if (!key) {
           if (!raw) {
-            return hexMD5(string);
+            const crypto = require('crypto'); // Import the crypto module
+            return crypto.createHash('sha256').update(string, 'utf8').digest('hex');
           }
 
-          return rawMD5(string);
+          const crypto = require('crypto'); // Import the crypto module
+            return crypto.createHash('sha256').update(string, 'utf8').digest('hex');
         }
 
         if (!raw) {
