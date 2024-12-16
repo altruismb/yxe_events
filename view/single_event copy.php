@@ -191,13 +191,13 @@ $brand = select_style_ctrl($product_style);
                     <li class="d-flex justify-content-between">
                       <strong>Category:</strong>
                       <span>
-                      <?php echo htmlspecialchars($cat['cat_name'], ENT_QUOTES, 'UTF-8');?> 
+                        <?php echo $cat['cat_name']; ?>
                       </span>
                     </li>
                     <li class="d-flex justify-content-between">
                       <strong>Target Group:</strong>
                       <span>
-                        <?php echo htmlspecialchars($brand['style_name'], ENT_QUOTES, 'UTF-8') ;?>
+                        <?php echo $brand['style_name']; ?>
                       </span>
                     </li>
                   </ul>
@@ -213,7 +213,7 @@ $brand = select_style_ctrl($product_style);
                 </div>
               </div>
               <div class="property-description">
-                <?php echo htmlspecialchars($product_one['plan_desc'], ENT_QUOTES, 'UTF-8')?>
+                <?php echo $product_one['plan_desc'] ?>
               </div>
             </div>
           </div>
