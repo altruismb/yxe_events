@@ -123,7 +123,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
               <div class="col-xl-6 col-lg-6 col-md-12">
 
                  <form method="POST" action="../actions/update_cat.php" class="tm-edit-product-form">
-                  <input type="hidden" name="cat_id" value="<?php echo($cid)?>">
+                 <?php
+                  // Sanitize the input value
+                  $cid = filter_input(INPUT_GET, 'cat_id', FILTER_SANITIZE_STRING); // or INPUT_POST if the source is POST
+                  // Encode the output to prevent XSS
+                  ?>
+                 <input type="hidden" name="cat_id" value="<?php echo htmlspecialchars($cid, ENT_QUOTES, 'UTF-8'); ?>">
+
                     <div class="form-group mb-3">
                       <label for="update_cat">Category Name</label>
                       <input id="name" name="update_cat" type="text" class="form-control validate" required value="<?php echo($category_detail['cat_name'])?>">
