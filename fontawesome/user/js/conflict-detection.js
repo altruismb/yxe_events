@@ -546,8 +546,6 @@
         return rstr2hex(rawHMACMD5(k, d));
       }
       /**
-       * Calculates MD5 value for a given string.
-       * If a key is provided, calculates the HMAC-MD5 value.
        * Returns a Hex encoded string unless the raw argument is given.
        *
        * @param {string} string Input string
