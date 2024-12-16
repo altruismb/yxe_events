@@ -33,18 +33,33 @@ $target_file = $targetdir . $safe_filename;
 
 // Ensure the temporary file exists and is a valid uploaded file
 
-    $filename = basename($tmp);  // Get the file name without path information
-    $targetPath = $targetdir . DIRECTORY_SEPARATOR . $filename;  // Safely construct the target path
+   // Sanitize the uploaded file name to avoid path traversal
+$filename = basename($tmp);  // Get the base file name (removes directory information)
+$targetPath = $targetdir . DIRECTORY_SEPARATOR . $filename;  // Safely construct the target path
+
+// Ensure the file is uploaded correctly and is a valid file type
+$allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];  // Define allowed file types (example for images)
+
+// Check if the file type is valid
+if (in_array(mime_content_type($tmp), $allowedTypes)) {
+    // Ensure the file is moved to the correct location
     if (move_uploaded_file($tmp, $targetPath)) {
+        // Call the update function
         $check_update = update_all_plan_ctrl($pid, $pcat, $pbrand, $ptitle, $pprice, $pdesc, $targetdir, $pkey);
+        
         if ($check_update) {
             header("Location: ../view/a_plan.php");
+            exit();  // Ensure no further code is executed after redirect
+        } else {
+            echo "Error: Failed to update plan.";
         }
-
-        else{
-            echo "not working";
-        }
-    }else{
+    } else {
+        echo "Error: Failed to move the uploaded file.";
+    }
+} else {
+    echo "Error: Invalid file type. Only JPEG, PNG, and GIF files are allowed.";
+}
+{
         echo "<script>alert('Fill all requirements to update')</script>";
         echo "<script>window.open('../view/a_plan.php','_self')</script>";
     }
