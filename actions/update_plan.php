@@ -35,13 +35,12 @@ $target_file = $targetdir . $safe_filename;
 
     $filename = basename($tmp);  // Get the file name without path information
     $targetPath = $targetdir . DIRECTORY_SEPARATOR . $filename;  // Safely construct the target path
-    
     if (move_uploaded_file($tmp, $targetPath)) {
         $check_update = update_all_plan_ctrl($pid, $pcat, $pbrand, $ptitle, $pprice, $pdesc, $targetdir, $pkey);
         if ($check_update) {
             header("Location: ../view/a_plan.php");
         }
-        
+
         else{
             echo "not working";
         }
