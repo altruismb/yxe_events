@@ -41,7 +41,7 @@ $target_file = $targetdir . $safe_filename;
         if ($check_update) {
             header("Location: ../view/a_plan.php");
         }
-
+        
         else{
             echo "not working";
         }
