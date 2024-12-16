@@ -121,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="row tm-edit-product-row">
               <div class="col-xl-6 col-lg-6 col-md-12">
                 <form method="POST" action="../actions/update_style.php" class="tm-edit-product-form">
-                  <input type="hidden" name="style_id" value="<?php echo($sid)?>">
+                <input type="hidden" name="style_id" value="<?php echo htmlspecialchars($sid, ENT_QUOTES, 'UTF-8'); ?>">
                     <div class="form-group mb-3">
                       <label for="update_style">Style Name</label>
                       <input id="name" name="update_style" type="text" class="form-control validate" required value="<?php echo htmlspecialchars($style_detail['style_name'], ENT_QUOTES, 'UTF-8'); ?>">

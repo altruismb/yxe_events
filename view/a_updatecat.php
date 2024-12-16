@@ -132,7 +132,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                     <div class="form-group mb-3">
                       <label for="update_cat">Category Name</label>
-                      <input id="name" name="update_cat" type="text" class="form-control validate" required value="<?php echo($category_detail['cat_name'])?>">
+                      <input id="name" name="update_cat" type="text" class="form-control validate" required value="<?php echo htmlspecialchars($category_detail['cat_name'], ENT_QUOTES, 'UTF-8'); ?>">
                     </div>
                       </div>
                       <div class="col-xl-6 col-lg-6 col-md-12 mx-auto mb-4">

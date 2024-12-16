@@ -17,8 +17,25 @@ if(isset($_POST['add_product'])){
     $image = $targetdir.$pimage;
     $tmp = $_FILES['pimage']["tmp_name"];
     
-    if(move_uploaded_file($tmp,$targetdir)){
-        $check= add_product_ctrl($pcat, $pbrand, $ptitle, $pprice, $pdescr, $targetdir, $pkey);
+    // Sanitize the file name to prevent path traversal
+$safe_filename = basename($tmp); // Removes directory traversal elements
+$targetdir = rtrim($targetdir, '/') . '/' . preg_replace('/[^a-zA-Z0-9_\-\.]/', '_', $safe_filename); // Replaces invalid characters
+
+// Validate the file type (e.g., only allow specific extensions)
+$allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'pdf']; // Adjust based on your requirements
+$file_extension = pathinfo($safe_filename, PATHINFO_EXTENSION);
+
+if (in_array(strtolower($file_extension), $allowed_extensions)) {
+    // Move the file only if it passes the checks
+    if (move_uploaded_file($tmp, $targetdir)) {
+        $check = add_product_ctrl($pcat, $pbrand, $ptitle, $pprice, $pdescr, $targetdir, $pkey);
+    } else {
+        echo "Failed to move the uploaded file.";
+    }
+} else {
+    echo "Invalid file type.";
+}
+
 
         if ($check) {
             echo "Entry Successful";

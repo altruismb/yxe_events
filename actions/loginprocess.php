@@ -31,7 +31,7 @@ if (isset($_POST["submit"])) {
 
         if ($logincheck){
             $results = logincustomer($cus_email);
-            echo $results['user_role']; 
+            echo htmlspecialchars($results['user_role'], ENT_QUOTES, 'UTF-8'); 
             $_SESSION['name'] = $results['customer_name'];
             $_SESSION['customer_id'] = $results['customer_id'];
             $_SESSION['customer_email'] = $results['customer_email'];
