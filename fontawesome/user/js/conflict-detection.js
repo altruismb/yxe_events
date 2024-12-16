@@ -535,7 +535,7 @@
       }
       /**
        * Calculates the Hex encoded HMAC-MD5 for the given key and data
-       *
+       *return rstr2hex(rawMD5(s));
        * @param {string} k HMAC key
        * @param {string} d Input string
        * @returns {string} Raw MD5 string
