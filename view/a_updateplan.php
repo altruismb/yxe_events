@@ -122,14 +122,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <div class="col-xl-6 col-lg-6 col-md-12">
               <form action="../actions/update_plan.php" method="POST" enctype="multipart/form-data" class="tm-edit-product-form">
                 <div class="form-group mb-3">
-                <input type="hidden" name= "id" value="<?php echo $pid?>">
+                <input type="hidden" name="id" value="<?php echo htmlspecialchars($pid, ENT_QUOTES, 'UTF-8'); ?>">
                   <label for="name">Plan Name
                   </label>
-                  <input id="name" name="ptitle" type="text" class="form-control validate" value="<?php echo $product_detail['plan_title']?>" required />
+                  <input id="name" name="ptitle" type="text" class="form-control validate" value="<?php echo htmlspecialchars($product_detail['plan_title'], ENT_QUOTES, 'UTF-8'); ?>" required />
                 </div>
                 <div class="form-group mb-3">
                   <label for="description" name="pdescr" >Plan Description</label>
-                  <input id="name" name="pdescr" type="text" class="form-control validate" rows="3" value="<?php echo $product_detail['plan_desc']?>" required />
+                  <textarea id="name" name="pdescr" class="form-control validate" rows="3" required><?php echo htmlspecialchars($product_detail['plan_desc'], ENT_QUOTES, 'UTF-8'); ?></textarea>
                 </div>
                 <div class="form-group mb-3"> <label for="category">Plan Category</label>
 
@@ -178,12 +178,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
                     <label for="expire_date">Plan Price (GH₵)
                     </label>
-                    <input id="expire_date" name="pprice" type="text" class="form-control validate" data-large-mode="true" value="<?php echo $product_detail['plan_price']?>" />
+                    <input id="expire_date" name="pprice" type="text" class="form-control validate" data-large-mode="true" value="<?php echo htmlspecialchars($product_detail['plan_price'], ENT_QUOTES, 'UTF-8'); ?>" />
                   </div>
                   <div class="form-group mb-3 col-xs-12 col-sm-6">
                     <label for="stock">Keywords
                     </label>
-                    <input id="stock" name="pkey" type="text" class="form-control validate" value="<?php echo $product_detail['plan_keywords'] ?>" required />
+                    <input id="stock" name="pkey" type="text" class="form-control validate" value="<?php echo htmlspecialchars($product_detail['plan_keywords'], ENT_QUOTES, 'UTF-8'); ?>" required />
                   </div>
                 </div>
 
